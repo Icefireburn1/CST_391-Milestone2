@@ -1,8 +1,12 @@
 package com.gcu.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.gcu.model.GameModel;
 import com.gcu.services.GameDAO;
 
 // Handles our URL directs to our Views
@@ -24,7 +28,7 @@ public class GameController {
 	// Loads games into list
 	@GetMapping("/games")
 	public String findGames(Model model) {
-		var games = gameService.GetAll();
+		List<GameModel> games = gameService.GetAll();
 		
 		model.addAttribute("games", games);
 
